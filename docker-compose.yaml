@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      # mount the tmp folders to the host
+      - ./data/tmp_dict:/tmp_dict
+      - ./data/tmp_img:/tmp_img
+      - ./data/tmp_processed:/tmp_processed
+      - ./data/tmp_raw:/tmp_raw
